@@ -4,14 +4,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout title='Yurik'>
   <div class='flex max-w-2xl flex-col gap-8 text-base font-normal leading-6'>
-    <h1 class='font-semibold text-3xl '>Hi! I'm Yurik.</h1>
+    <h1 class='text-3xl font-semibold'>Hi! I'm Yurik.</h1>
     <p>
-      <span class='italic tracking-wider'>Product Engineer.</span> Building polished software and web experiences. Experimenting with
-      magical details in user interfaces. Webmaster at Linear.
+      <span class='italic tracking-wider'>Product Engineer.</span> Building polished software and web experiences. Experimenting
+      with magical details in user interfaces. Webmaster at Linear.
     </p>
     <p>In the past I've collaborated with local and international non-governmental organization.</p>
 
-    <h2 class='font-semibold text-xl'>Now</h2>
+    <div class="flex justify-evenly">
+      <a href='/projects'>Projects</a>
+      <a href='/writing'>Writing</a>
+    </div>
+
+    <h2 class='text-xl font-semibold'>Now</h2>
     <p>
       Developing skill through doing, guiltlessly exploring passion and interests, imbuing qualit. Mindful that
       everything around me is someone’s life work.
@@ -26,7 +31,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       favorites.
     </p>
 
-    <h2 class='font-semibold text-xl'>Connect</h2>
+    <h2 class='text-xl font-semibold'>Connect</h2>
     <p>Reach me at @pacocoursey or p@paco.me.</p>
   </div>
 </BaseLayout>
