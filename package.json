@@ -21,6 +21,7 @@
     "typescript": "^5.4.5"
   },
   "devDependencies": {
+    "@iconify-json/eva": "^1.1.10",
     "@iconify-json/lets-icons": "^1.1.2",
     "prettier": "^3.3.2",
     "prettier-plugin-astro": "^0.14.0",
