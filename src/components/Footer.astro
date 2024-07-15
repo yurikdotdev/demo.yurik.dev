@@ -1,7 +1,10 @@
-<footer
-  class='text-grey-text border-grey-text border-t border-opacity-20 p-4 text-sm opacity-70'>
-  <div class='mx-auto max-w-2xl flex justify-between content-center'>
+---
+import getYear from '../utils/getYear';
+---
+
+<footer class='border-t border-grey-text border-opacity-20 p-4 text-sm text-grey-text opacity-70'>
+  <div class='mx-auto flex max-w-2xl content-center justify-between'>
     <p>Shine, constantly, and steadily</p>
-    <p>2024</p>
+    <p>{getYear}</p>
   </div>
 </footer>
