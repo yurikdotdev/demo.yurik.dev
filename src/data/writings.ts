@@ -18,4 +18,14 @@ export const writings = [
     description: 'Eu amet elit consectetur reprehenderit aliqua.',
     url: '',
   },
+  {
+    title: 'Dolor enim enim velit esse dolore non consectetur ex.',
+    description: 'Eu amet elit consectetur reprehenderit aliqua.',
+    url: '',
+  },
+  {
+    title: 'Dolor enim enim velit esse dolore non consectetur ex.',
+    description: 'Eu amet elit consectetur reprehenderit aliqua.',
+    url: '',
+  },
 ];
