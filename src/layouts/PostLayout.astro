@@ -1,0 +1,28 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import BackBtn from '../components/BackBtn.astro';
+
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout title={frontmatter.title}>
+  <BackBtn />
+
+  <div class='flex max-w-screen-sm flex-col items-center justify-center gap-4'>
+    <div class='flex w-full flex-col gap-8'>
+      <p class="font-normal text-sm tracking-tight text-grey-text opacity-60">{frontmatter.publishedDate}</p>
+      <h1 class='text-4xl font-medium sm:text-5xl'>{frontmatter.title}</h1>
+      <h2 class='pb-4 text-grey-text opacity-90 tracking-tight'>{frontmatter.description}</h2>
+      <img src={frontmatter.coverImg.url} class='w-fit opacity-80' alt={frontmatter.coverImg.alt} />
+      <div class='border-b border-dashed pb-4 opacity-20'></div>
+    </div>
+
+    <div class='w-full text-xs opacity-40'>
+      <p>Last updated on {frontmatter.updatedDate}</p>
+    </div>
+
+    <div class='font-arial py-8 font-light leading-loose'>
+      <slot />
+    </div>
+  </div>
+</BaseLayout>
