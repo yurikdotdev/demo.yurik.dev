@@ -4,6 +4,7 @@ import '@fontsource-variable/newsreader';
 import '@fontsource/ibm-plex-sans';
 
 import Footer from '../components/Footer.astro';
+import DarkMode from '../components/DarkMode.astro';
 
 interface Props {
   title: string;
@@ -22,11 +23,12 @@ const { title } = Astro.props;
     <meta name='generator' content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class='flex min-h-screen flex-col bg-black-bg text-white-text'>
+  <body class='flex min-h-screen flex-col bg-white-text text-black-bg dark:bg-black-bg dark:text-white-text'>
     <main class='p mx-auto flex-grow px-4 py-24'>
       <slot />
     </main>
     <Footer />
+    <DarkMode />
   </body>
 </html>
 
