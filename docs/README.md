@@ -8,6 +8,4 @@
 - [paco.me](https://paco.me)
 - [leerob.io](https://leerob.io)
 - [chriis.dev](https://chriis.dev)
-
-
-
+- [nan.fyi](https://nan.fyi)
