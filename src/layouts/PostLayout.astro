@@ -3,26 +3,35 @@ import BaseLayout from './BaseLayout.astro';
 import BackBtn from '../components/BackBtn.astro';
 
 const { frontmatter } = Astro.props;
+
+const tableOfContents = frontmatter.tableOfContents;
 ---
 
 <BaseLayout title={frontmatter.title}>
   <BackBtn />
 
-  <div class='flex max-w-screen-sm flex-col items-center justify-center gap-4'>
-    <div class='flex w-full flex-col gap-8'>
-      <p class="font-normal text-sm tracking-tight dark:text-grey-text opacity-60">{frontmatter.publishedDate}</p>
-      <h1 class='text-4xl font-medium sm:text-5xl'>{frontmatter.title}</h1>
-      <h2 class='pb-4 dark:text-grey-text opacity-90 tracking-tight'>{frontmatter.description}</h2>
-      <img src={frontmatter.coverImg.url} class='w-fit opacity-80' alt={frontmatter.coverImg.alt} />
-      <div class='border-b border-dashed pb-4 opacity-20'></div>
+  <div class='flex w-screen gap-12'>
+    <div class='hidden lg:block lg:w-1/6'>
+      <ul class='h-full w-full flex flex-col items-center justify-start p-12 gap-4 dark:text-grey-text opacity-50 text-sm'>
+        {tableOfContents.map((content) => <li>{content}</li>)}
+      </ul>
     </div>
 
-    <div class='w-full text-xs dark:opacity-40 opacity-60'>
-      <p>Last updated on {frontmatter.updatedDate}</p>
-    </div>
+    <div class='flex max-w-2xl flex-col items-center justify-center lg:w-4/6'>
+      <div class='flex w-full flex-col gap-8'>
+        <p class='text-sm font-normal tracking-tight opacity-60 dark:text-grey-text'>{frontmatter.publishedDate}</p>
+        <h1 class='text-4xl font-medium sm:text-5xl'>{frontmatter.title}</h1>
+        <h2 class='pb-4 tracking-tight opacity-90 dark:text-grey-text'>{frontmatter.description}</h2>
+        <img src={frontmatter.coverImg.url} class='w-fit dark:opacity-80' alt={frontmatter.coverImg.alt} />
+        <div class='border-b border-dashed pb-4 opacity-20'></div>
+      </div>
 
-    <div class='font-arial py-8 font-light leading-loose'>
-      <slot />
+      <div class='w-full text-xs opacity-40 py-4'>
+        <p>Last updated on {frontmatter.updatedDate}</p>
+      </div>
+      <div class='font-arial flex flex-col gap-4 py-8 font-light leading-loose'>
+        <slot />
+      </div>
     </div>
   </div>
 </BaseLayout>
