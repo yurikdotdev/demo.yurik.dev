@@ -25,3 +25,4 @@ pnpm-debug.log*
 
 # project management
 TODO.md
+.vercel
