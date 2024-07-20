@@ -13,7 +13,7 @@ const tableOfContents = frontmatter.tableOfContents;
   <div class='flex w-screen gap-12'>
     <div class='hidden lg:block lg:w-1/6'>
       <ul class='h-full w-full flex flex-col items-center justify-start p-12 gap-4 dark:text-grey-text opacity-50 text-sm'>
-        {tableOfContents.map((content) => <li>{content}</li>)}
+        {tableOfContents.map((content: string) => <li>{content}</li>)}
       </ul>
     </div>
 
