@@ -1,9 +1,41 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BackBtn from '../components/BackBtn.astro';
+
+import ProjectsCard from '../components/projects/ProjectsCard.astro';
 ---
 
 <BaseLayout title='Yurik | Projects'>
   <BackBtn />
-  <h1>Projects</h1>
+  <h1 class='p-12 text-center text-5xl opacity-80'>Projects</h1>
+
+  <div>
+    <ProjectsCard
+      title='Voluptate ea mollit tempor cupidatat fugiat magna tempor ut.'
+      description='Ea incididunt commodo et aute nulla officia pariatur do quis enim et excepteur commodo laboris.'
+      publishedDate='2024-06-02'
+      image='https://docs.astro.build/assets/rose.webp'
+      imageAlt='Nisi Lorem dolore do veniam ipsum sint duis est adipisicing.'
+    />
+
+    <div class='border-b border-dashed pb-4 opacity-20'></div>
+
+    <ProjectsCard
+      title='Voluptate ea mollit tempor cupidatat fugiat magna tempor ut.'
+      description='Ea incididunt commodo et aute nulla officia pariatur do quis enim et excepteur commodo laboris.'
+      publishedDate='2024-06-02'
+      image='https://docs.astro.build/assets/rose.webp'
+      imageAlt='Nisi Lorem dolore do veniam ipsum sint duis est adipisicing.'
+    />
+
+    <div class='border-b border-dashed pb-4 opacity-20'></div>
+
+    <ProjectsCard
+      title='Voluptate ea mollit tempor cupidatat fugiat magna tempor ut.'
+      description='Ea incididunt commodo et aute nulla officia pariatur do quis enim et excepteur commodo laboris.'
+      publishedDate='2024-06-02'
+      image='https://docs.astro.build/assets/rose.webp'
+      imageAlt='Nisi Lorem dolore do veniam ipsum sint duis est adipisicing.'
+    />
+  </div>
 </BaseLayout>

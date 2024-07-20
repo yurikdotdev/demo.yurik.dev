@@ -1,4 +1,15 @@
-# yurik.dev
+ghThis is a demo personal website, a playground for me to practice frontend developement. 
+
+## Feature
+
+
+
+## Stacks
+
+- Astro
+- Tailwind CSS
+
+## 
 
 <!-- ![Preview](/images/placeholder.webp) -->
 
