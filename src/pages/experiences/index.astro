@@ -1,0 +1,56 @@
+---
+import BackBtn from '@components/BackBtn.astro';
+import Container from '@components/Container.astro';
+import { EXPERIENCES } from '@consts';
+import Layout from '@layouts/Layout.astro';
+import { dateRange } from '@lib/utils';
+import { getCollection } from 'astro:content';
+
+const collection = (await getCollection('experiences')).sort(
+  (a, b) => new Date(b.data.startDate).valueOf() - new Date(a.data.startDate).valueOf(),
+);
+
+const experiences = await Promise.all(
+  collection.map(async (item) => {
+    const { Content } = await item.render();
+    return { ...item, Content };
+  }),
+);
+---
+
+<Layout title={EXPERIENCES.TITLE} description={EXPERIENCES.DESCRIPTION}>
+  <Container>
+    <BackBtn />
+    <h1 class='p-12 text-center text-5xl opacity-80 animate'>Experiences</h1>
+
+    <div class='flex flex-col pt-8 leading-loose'>
+      <p>
+        On a mission to build products developers love, and along the way, teach the next generation of developers.
+        Here's a summary of my work so far.
+      </p>
+      <div class='pt-12'>
+        {
+          experiences.map((experience, index) => (
+            <>
+              <div class='flex flex-col gap-8 py-8 animate'>
+                <div class='flex flex-col items-start justify-center'>
+                  <div class='flex flex-col gap-2'>
+                    <h2 class='text-2xl font-bold font-inter'>{experience.data.company}</h2>
+                    <h1 class='text-lg'>{experience.data.title}</h1>
+                    <p class='dark:text-gray-400 text-sm font-normal tracking-tight opacity-60'>
+                      {dateRange(experience.data.startDate, experience.data.endDate)}
+                    </p>
+                  </div>
+                </div>
+                <article>
+                  <experience.Content />
+                </article>
+              </div>
+              {index !== experiences.length - 1 && <div class='border-b border-dashed opacity-20' />}
+            </>
+          ))
+        }
+      </div>
+    </div>
+  </Container>
+</Layout>

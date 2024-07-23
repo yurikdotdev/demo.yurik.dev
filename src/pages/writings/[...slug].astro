@@ -1,0 +1,50 @@
+---
+import BackBtn from '@components/BackBtn.astro';
+import Container from '@components/Container.astro';
+import Layout from '@layouts/Layout.astro';
+import { type CollectionEntry, getCollection } from 'astro:content';
+
+import {formatDate} from '@lib/utils'
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const writings = (await getCollection('writings'))
+    .filter((writing) => !writing.data.isDraft)
+    .sort((a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf());
+  return writings.map((writing) => ({
+    params: { slug: writing.slug },
+    props: writing,
+  }));
+}
+type Props = CollectionEntry<'writings'>;
+
+const writing = Astro.props;
+const { Content } = await writing.render();
+---
+
+<Layout title={writing.data.title} description={writing.data.description}>
+  <BackBtn />
+
+  <Container>
+    <div class='flex flex-col items-center justify-center'>
+      <div class='flex w-full flex-col gap-8'>
+        <p class='text-sm font-normal tracking-tight opacity-60 dark:text-grey-custom'>
+          {formatDate(writing.data.publishedDate)}
+        </p>
+        <h1 class='text-4xl font-medium font-inter sm:text-5xl'>{writing.data.title}</h1>
+        <h2 class='pb-4 tracking-tight opacity-90 dark:text-grey-custom'>{writing.data.description}</h2>
+        <img src={writing.data.coverImg.url} class='w-fit dark:opacity-80' alt={writing.data.coverImg.alt} />
+        <div class='border-b border-dashed pb-4 opacity-20'></div>
+      </div>
+
+      <div class='w-full py-4 text-xs opacity-40'>
+        <p>Last updated on {formatDate(writing.data.updatedDate)}</p>
+      </div>
+    </div>
+
+    <article class="leading-loose font-inter">
+      <Content />
+    </article>
+  </Container>
+</Layout>

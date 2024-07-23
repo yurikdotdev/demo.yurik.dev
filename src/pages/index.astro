@@ -1,45 +1,138 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Works from '../components/Works.astro';
+import Container from '@components/Container.astro';
+import Link from '@components/Link.astro';
+import { HOME, SITE } from '@consts';
+import Layout from '@layouts/Layout.astro';
+import { dateRange } from '@lib/utils';
+import { Icon } from 'astro-icon/components';
+import { getCollection } from 'astro:content';
+
+const writings = (await getCollection('writings'))
+  .filter((writing) => !writing.data.isDraft)
+  .sort((a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf())
+  .slice(0, SITE.NUM_WRITINGS_ON_HOMEPAGE);
+
+const projects = (await getCollection('projects'))
+  .filter((project) => !project.data.isDraft)
+  .slice(0, SITE.NUM_PROJECTS_ON_HOMEPAGE);
+
+const experiences = (await getCollection('experiences'))
+  .filter((experience) => !experience.data.isDraft)
+  .sort((a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf())
+  .slice(0, SITE.NUM_EXPERIENCES_ON_HOMEPAGE);
 ---
 
-<BaseLayout title='Yurik | Home'>
-  <div class='flex max-w-2xl flex-col gap-8 text-base font-normal leading-6'>
-    <div class='flex flex-col gap-2'>
-      <h1 class='text-3xl font-medium tracking-wide'>Yurik Yang</h1>
-      <h1 class='text-lg font-medium tracking-wide opacity-70 dark:text-grey-text dark:opacity-80'>Product Engineer</h1>
-    </div>
-    <p>
-      Velit dolore consectetur et id sit velit incididunt veniam. Labore adipisicing elit mollit labore ea mollit Lorem
-      culpa tempor ea quis cupidatat magna duis. Dolore et ad nisi nostrud mollit aliqua et id deserunt.
-    </p>
-    <p>Dolor sint minim aliqua enim consequat nostrud ea.</p>
-    <Works />
-    <h2 class='pt-4 font-medium tracking-wide'>Updates</h2>
-    <p>
-      Incididunt cillum exercitation culpa sit voluptate Lorem veniam magna. Enim excepteur incididunt elit ut irure
-      consequat enim qui tempor in. Aliqua adipisicing elit duis in dolore officia.
-    </p>
-    <p>
-      Incididunt quis irure et est anim qui ea irure officia nulla esse. Ut minim exercitation do occaecat id aute enim
-      nostrud elit ea. Qui tempor magna nostrud sint aliqua. Nisi cillum aliqua dolore et ipsum deserunt culpa
-      adipisicing cupidatat incididunt minim quis est.
-    </p>
-    <p>
-      Deserunt adipisicing enim ut aliqua. Nisi esse veniam exercitation veniam duis ea deserunt. Elit sint occaecat
-      sint commodo reprehenderit sint. Minim aliquip velit dolore velit aliqua laborum laboris nulla sint incididunt
-      elit.
-    </p>
-    <h2 class='pt-4 font-medium tracking-wide'>Contact</h2>
-    <p>Reach me at @yurikdevv or yurik@yurik.dev.</p>
-  </div>
-</BaseLayout>
+<Layout title={HOME.TITLE} description={HOME.DESCRIPTION}>
+  <Container>
+    <div class='flex flex-col gap-8 leading-6'>
+      <div class='flex flex-col gap-2'>
+        <!-- HEADER -->
+        <h1 class='font-inter text-3xl font-medium tracking-wide'>Yurik Yang</h1>
+        <h1 class='font-inter text-lg font-medium tracking-wide opacity-70 dark:text-grey-custom dark:opacity-80'>
+          Product Engineer
+        </h1>
+      </div>
+      <p>
+        Velit dolore consectetur et id sit velit incididunt veniam. Labore adipisicing elit mollit labore ea mollit
+        Lorem culpa tempor ea quis cupidatat magna duis. Dolore et ad nisi nostrud mollit aliqua et id deserunt.
+      </p>
+      <p>Dolor sint minim aliqua enim consequat nostrud ea.</p>
 
-<style>
-  p {
-    font-family: 'IBM Plex Sans', sans-serif;
-  }
-  span {
-    font-family: 'Newsreader Variable', serif;
-  }
-</style>
+      <!-- TODO: turn these sections into a component -->
+      <div class='flex justify-between gap-24 overflow-y-auto'>
+        <div class='flex shrink-0 flex-col'>
+          <!-- PROJECT SECTION -->
+          <div class='max-w-52 sm:max-w-72'>
+            <h2
+              class='pb-2 pt-12 text-xs opacity-80 transition duration-300 ease-in-out hover:opacity-100 dark:text-grey-custom'>
+              <a class='inline-flex items-center gap-2' href='/projects'
+                >PROJECTS<Icon name='lets-icons:arrow-right' /></a
+              >
+            </h2>
+            {
+              projects.map((project) => (
+                <Link entry={project}>
+                  <div class='py-4'>
+                    <div class='flex flex-col gap-4'>
+                      <h3 class='font-medium'>{project.data.title}</h3>
+                      <p class='line-clamp-2 opacity-70 dark:text-grey-custom dark:opacity-80'>
+                        {project.data.description}
+                      </p>
+                    </div>
+                  </div>
+                </Link>
+              ))
+            }
+          </div>
+
+          <!-- EXPERIENCES -->
+          <div class='max-w-52 sm:max-w-72'>
+            <h2
+              class='pb-2 pt-12 text-xs opacity-80 transition duration-300 ease-in-out hover:opacity-100 dark:text-grey-custom'>
+              <a class='inline-flex items-center gap-2' href='/experiences'
+                >EXPERIENCES<Icon name='lets-icons:arrow-right' /></a
+              >
+            </h2>
+            {
+              experiences.map((experience) => (
+                <div class='py-4'>
+                  <div class='flex flex-col gap-2'>
+                    <p class='text-sm opacity-70 dark:text-grey-custom dark:opacity-80'>
+                      {dateRange(experience.data.startDate, experience.data.endDate)}
+                    </p>
+                    <h3 class='font-inter font-medium'>{experience.data.company}</h3>
+                    <p class='opacity-70 dark:opacity-80'>{experience.data.title}</p>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <!-- WRITINGS -->
+        <div class='max-w-52 shrink-0 sm:max-w-72'>
+          <h2
+            class='pb-2 pt-12 text-xs opacity-80 transition duration-300 ease-in-out hover:opacity-100 dark:text-grey-custom'>
+            <a class='inline-flex items-center gap-2' href='/writings'>WRITINGS<Icon name='lets-icons:arrow-right' /></a
+            >
+          </h2>
+          {
+            writings.map((writing) => (
+              <div class='py-4'>
+                <Link entry={writing}>
+                  <div class='flex flex-col gap-4'>
+                    <h3 class='font-medium'>{writing.data.title}</h3>
+                    <p class='line-clamp-3 opacity-70 dark:text-grey-custom dark:opacity-80'>
+                      {writing.data.description}
+                    </p>
+                  </div>
+                </Link>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- UPDATES -->
+      <h2 class='pt-4 font-medium tracking-wide'>Updates</h2>
+      <p>
+        Incididunt cillum exercitation culpa sit voluptate Lorem veniam magna. Enim excepteur incididunt elit ut irure
+        consequat enim qui tempor in. Aliqua adipisicing elit duis in dolore officia.
+      </p>
+      <p>
+        Incididunt quis irure et est anim qui ea irure officia nulla esse. Ut minim exercitation do occaecat id aute
+        enim nostrud elit ea. Qui tempor magna nostrud sint aliqua. Nisi cillum aliqua dolore et ipsum deserunt culpa
+        adipisicing cupidatat incididunt minim quis est.
+      </p>
+      <p>
+        Deserunt adipisicing enim ut aliqua. Nisi esse veniam exercitation veniam duis ea deserunt. Elit sint occaecat
+        sint commodo reprehenderit sint. Minim aliquip velit dolore velit aliqua laborum laboris nulla sint incididunt
+        elit.
+      </p>
+
+      <!-- CONTACT -->
+      <h2 class='pt-4 font-medium tracking-wide'>Contact</h2>
+      <p>Reach me at @yurikdevv or yurik@yurik.dev.</p>
+    </div>
+  </Container>
+</Layout>
