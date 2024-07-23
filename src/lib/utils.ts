@@ -20,3 +20,11 @@ export function dateRange(startDate: Date, endDate?: Date | string): string {
 
   return `${startMonth} ${startYear} — ${endMonth} ${endYear}`;
 }
+
+export function formatDate(date: Date): string {
+  return date.toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'numeric',
+    year: 'numeric',
+  });
+}
