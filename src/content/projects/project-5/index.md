@@ -3,7 +3,7 @@ title: 'Weather Dashboard'
 description: 'Esse fugiat dolore commodo cupidatat culpa minim amet officia nulla cupidatat exercitation deserunt proident pariatur. Veniam do aliqua consequat in pariatur minim excepteur.'
 url: 'https://weather-dashboard.example.com'
 repo: 'https://github.com/username/weather-dashboard'
-image: 'https://example.com/images/weather-dashboard.webp'
+image: 'https://docs.astro.build/assets/rose.webp'
 imageAlt: 'Screenshot of the Weather Dashboard'
 publishedDate: '2024-03-05'
 isDraft: false

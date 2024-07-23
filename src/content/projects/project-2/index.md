@@ -3,7 +3,7 @@ title: 'E-Commerce Store'
 description: 'Esse fugiat dolore commodo cupidatat culpa minim amet officia nulla cupidatat exercitation deserunt proident pariatur. Veniam do aliqua consequat in pariatur minim excepteur.'
 url: 'https://ecommerce-store.example.com'
 repo: 'https://github.com/username/ecommerce-store'
-image: 'https://example.com/images/ecommerce-store.webp'
+image: 'https://docs.astro.build/assets/rose.webp'
 imageAlt: 'Screenshot of the E-Commerce Store'
 publishedDate: '2024-06-01'
 isDraft: false

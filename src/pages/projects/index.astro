@@ -34,10 +34,10 @@ const projects = (await getCollection('projects')).filter((project) => !project.
 
               <div class='order-3 h-0 border-none opacity-20 md:order-2 md:h-96 md:border-l md:border-dashed' />
 
-              <div class='md: order-1 flex-1 py-12 md:order-3'>
+              <div class='md:order-1 flex-1 py-12 md:order-3'>
                 <img
                   src={project.data.image}
-                  class='aspect-square w-fit rounded-full object-cover dark:opacity-80'
+                  class='aspect-square w-72 rounded-full object-cover dark:opacity-80'
                   alt={project.data.imageAlt}
                 />
               </div>

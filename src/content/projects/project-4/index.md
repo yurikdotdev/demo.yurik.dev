@@ -3,7 +3,7 @@ title: 'Task Management App'
 description: 'Ex duis ullamco irure irure minim fugiat laborum officia duis eiusmod irure nostrud ea. Commodo aliqua enim id commodo irure enim consequat veniam dolor voluptate cillum ut ex tempor. '
 url: 'https://task-management-app.example.com'
 repo: 'https://github.com/username/task-management-app'
-image: 'https://example.com/images/task-management-app.webp'
+image: 'https://docs.astro.build/assets/rose.webp'
 imageAlt: 'Screenshot of the Task Management App'
 publishedDate: '2024-04-20'
 isDraft: false

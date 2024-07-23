@@ -3,7 +3,7 @@ title: 'Next.js Blog Template'
 description: 'Ex duis ullamco irure irure minim fugiat laborum officia duis eiusmod irure nostrud ea..'
 url: 'https://nextjs-blog-template.example.com'
 repo: 'https://github.com/username/nextjs-blog-template'
-image: 'https://example.com/images/nextjs-blog-template.webp'
+image: 'https://docs.astro.build/assets/rose.webp'
 imageAlt: 'Screenshot of the Next.js Blog Template'
 publishedDate: '2024-07-15'
 isDraft: false

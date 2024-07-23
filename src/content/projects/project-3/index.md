@@ -3,7 +3,7 @@ title: 'Portfolio Website'
 description: 'Irure culpa nostrud ea eu nulla consequat dolore fugiat sunt labore sint adipisicing officia reprehenderit. Deserunt sunt in amet adipisicing cillum nulla consequat Lorem excepteur proident et proident.'
 url: 'https://portfolio-website.example.com'
 repo: 'https://github.com/username/portfolio-website'
-image: 'https://example.com/images/portfolio-website.webp'
+image: 'https://docs.astro.build/assets/rose.webp'
 imageAlt: 'Screenshot of the Portfolio Website'
 publishedDate: '2024-05-10'
 isDraft: false

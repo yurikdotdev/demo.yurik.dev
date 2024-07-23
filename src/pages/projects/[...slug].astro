@@ -29,8 +29,9 @@ const { Content } = await project.render();
   <Container>
     <BackBtn />
 
-    <div class="flex flex-col items-center">
+    <div class='flex flex-col items-center'>
       <h1 class='p-12 font-inter text-5xl opacity-80'>{project.data.title}</h1>
+      <img src={project.data.image} class='w-fit dark:opacity-80 py-4' alt={project.data.imageAlt} />
       <div class='flex justify-center gap-4 underline'>
         <a href={project.data.url}>demo</a>
         <a href={project.data.repo}>repo</a>
