@@ -1,17 +1,21 @@
+![preview](preview.png)
+
+demo: [demo.yurik.dev](https://www.demo.yurik.dev)
+
 ## Feature
 
-
+- Minimalist & Simple Design
+- Responsive Layout
+- Typesafe Markdown
+- SEO-Friendly
+- Dark Mode
 
 ## Stacks
 
 - Astro
 - Tailwind CSS
 
-## 
 
-<!-- ![Preview](/images/placeholder.webp) -->
-
-[demo.yurik.dev](https://demo.yurik.dev)
 
 ## Credits
 - [paco.me](https://paco.me)
