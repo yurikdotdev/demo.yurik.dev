@@ -1,0 +1,51 @@
+---
+import { getCollection } from 'astro:content';
+
+import Link from '@components/Link.astro'
+
+import BackBtn from '@components/BackBtn.astro';
+import Container from '@components/Container.astro';
+import Layout from '@layouts/Layout.astro';
+
+import { PROJECTS } from '@consts';
+
+import {formatDate} from '@lib/utils'
+
+const projects = (await getCollection('projects')).filter((project) => !project.data.isDraft);
+---
+
+<Layout title={PROJECTS.TITLE} description={PROJECTS.DESCRIPTION}>
+
+    <BackBtn />
+
+    <h1 class='p-12 text-center text-5xl opacity-80'>Projects</h1>
+    <div class='w-full flex flex-col items-center gap-12'>
+      {
+        projects.map((project, index) => (
+          <Link entry={project}>
+            <div class='opacity-70 hover:opacity-100 flex h-full flex-col items-center justify-center gap-4 p-8 md:flex-row md:gap-20'>
+              <div class='order-2 flex flex-col gap-4 text-left md:order-1 md:flex-1 md:gap-12 md:text-right'>
+                <p class='text-sm font-normal tracking-tight opacity-60 dark:text-grey-custom'>
+                  {formatDate(project.data.publishedDate)}
+                </p>
+                <h1 class='text-3xl font-medium sm:text-5xl'>{project.data.title}</h1>
+                <h2 class='pb-4 tracking-tight opacity-90 dark:text-grey-custom'>{project.data.description}</h2>
+              </div>
+
+              <div class='order-3 h-0 border-none opacity-20 md:order-2 md:h-96 md:border-l md:border-dashed' />
+
+              <div class='md: order-1 flex-1 py-12 md:order-3'>
+                <img
+                  src={project.data.image}
+                  class='aspect-square w-fit rounded-full object-cover dark:opacity-80'
+                  alt={project.data.imageAlt}
+                />
+              </div>
+            </div>
+            {index !== projects.length - 1 && <div class='border-b border-dashed opacity-20' />}
+          </Link>
+        ))
+      }
+    </div>
+
+</Layout>

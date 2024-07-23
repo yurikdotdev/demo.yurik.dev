@@ -1,6 +1,11 @@
 ---
-title: 'Laborum exercitation do et in id sint anim nostrud dolor officia.'
-description: 'Excepteur mollit sint dolor tempor non reprehenderit pariatur dolore minim commodo officia. Minim veniam laborum ex sint irure adipisicing. Anim cillum pariatur tempor ipsum ex.'
+title: 'Next.js Blog Template'
+description: 'Ex duis ullamco irure irure minim fugiat laborum officia duis eiusmod irure nostrud ea..'
+url: 'https://nextjs-blog-template.example.com'
+repo: 'https://github.com/username/nextjs-blog-template'
+image: 'https://example.com/images/nextjs-blog-template.webp'
+imageAlt: 'Screenshot of the Next.js Blog Template'
+publishedDate: '2024-07-15'
 isDraft: false
 ---
 

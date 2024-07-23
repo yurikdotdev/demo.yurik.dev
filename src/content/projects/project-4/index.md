@@ -1,6 +1,11 @@
 ---
-title: 'Laborum exercitation do et in id sint anim nostrud dolor officia.'
-description: 'Excepteur mollit sint dolor tempor non reprehenderit pariatur dolore minim commodo officia. Minim veniam laborum ex sint irure adipisicing. Anim cillum pariatur tempor ipsum ex.'
+title: 'Task Management App'
+description: 'Ex duis ullamco irure irure minim fugiat laborum officia duis eiusmod irure nostrud ea. Commodo aliqua enim id commodo irure enim consequat veniam dolor voluptate cillum ut ex tempor. '
+url: 'https://task-management-app.example.com'
+repo: 'https://github.com/username/task-management-app'
+image: 'https://example.com/images/task-management-app.webp'
+imageAlt: 'Screenshot of the Task Management App'
+publishedDate: '2024-04-20'
 isDraft: false
 ---
 

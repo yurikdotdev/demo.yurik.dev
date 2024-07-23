@@ -1,6 +1,11 @@
 ---
-title: 'Laborum exercitation do et in id sint anim nostrud dolor officia.'
-description: 'Excepteur mollit sint dolor tempor non reprehenderit pariatur dolore minim commodo officia. Minim veniam laborum ex sint irure adipisicing. Anim cillum pariatur tempor ipsum ex.'
+title: 'E-Commerce Store'
+description: 'Esse fugiat dolore commodo cupidatat culpa minim amet officia nulla cupidatat exercitation deserunt proident pariatur. Veniam do aliqua consequat in pariatur minim excepteur.'
+url: 'https://ecommerce-store.example.com'
+repo: 'https://github.com/username/ecommerce-store'
+image: 'https://example.com/images/ecommerce-store.webp'
+imageAlt: 'Screenshot of the E-Commerce Store'
+publishedDate: '2024-06-01'
 isDraft: false
 ---
 

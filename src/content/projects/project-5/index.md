@@ -1,6 +1,11 @@
 ---
-title: 'Laborum exercitation do et in id sint anim nostrud dolor officia.'
-description: 'Excepteur mollit sint dolor tempor non reprehenderit pariatur dolore minim commodo officia. Minim veniam laborum ex sint irure adipisicing. Anim cillum pariatur tempor ipsum ex.'
+title: 'Weather Dashboard'
+description: 'Esse fugiat dolore commodo cupidatat culpa minim amet officia nulla cupidatat exercitation deserunt proident pariatur. Veniam do aliqua consequat in pariatur minim excepteur.'
+url: 'https://weather-dashboard.example.com'
+repo: 'https://github.com/username/weather-dashboard'
+image: 'https://example.com/images/weather-dashboard.webp'
+imageAlt: 'Screenshot of the Weather Dashboard'
+publishedDate: '2024-03-05'
 isDraft: false
 ---
 
