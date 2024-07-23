@@ -1,10 +1,12 @@
 ---
+import { SITE } from '@consts';
 import getYear from '@lib/utils';
 ---
 
-<footer class='border-t border-grey-text dark:border-opacity-20 border-opacity-40 p-4 opacity-60 text-sm dark:text-grey-text opacity-100 dark:opacity-70'>
-  <div class='tracking-tightest mx-auto flex max-w-2xl content-center items-center justify-between'>
-    <p>UTC +7 @ Bintan Island, Indonesia</p>
-    <p>{getYear}</p>
+<footer
+  class='border-t border-grey-custom border-opacity-40 text-sm opacity-100 opacity-60 dark:border-opacity-20 dark:text-grey-custom dark:opacity-70'>
+  <div class='tracking-tightest mx-auto flex max-w-screen-md content-center items-center justify-between px-5'>
+    <p>&copy; {getYear} | {SITE.NAME}</p>
+    <p>{SITE.TIMEZONE} | {SITE.LOCATION}</p>
   </div>
 </footer>

@@ -1,0 +1,11 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+type Props = {
+  entry: CollectionEntry<'writings'> | CollectionEntry<'projects'>;
+};
+
+const { entry } = Astro.props;
+---
+
+<a href={`/${entry.collection}/${entry.slug}`}><slot/></a>
